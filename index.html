@@ -341,7 +341,6 @@
       selectedOrgUrl = ORG_URLS[selectedOrg];
       
       // Reset everything
-      resetForm();
       
       if (!selectedOrg) {
         disableAll();
@@ -370,19 +369,6 @@
       validateForm();
     }
 
-    function resetForm() {
-      selectedCheck = null;
-      selectedUser = null;
-      facilities = [];
-      checkSearch.value = '';
-      userSearch.value = '';
-      selectedCheckEl.classList.add('hide');
-      selectedUserEl.classList.add('hide');
-      facilitySelect.innerHTML = '<option value="">Select Organization First</option>';
-      facilitySelect.disabled = true;
-      hideAllDropdowns();
-      validateForm();
-    }
 
     function disableAll() {
       facilitySelect.disabled = true;
@@ -736,8 +722,6 @@
         hideLoading();
         showSuccess(`Successfully unsubscribed ${selectedUser.firstName} ${selectedUser.lastName} from ${selectedCheck.check.name}!`);
         
-        // Reset form
-        resetForm();
 
       } catch (error) {
         hideLoading();
